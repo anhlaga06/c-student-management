@@ -36,21 +36,25 @@ This application allows users to manage student records using basic operations s
 
 ## 📂 Project Structure
 c-student-management/
+```
 │
 ├── src/
-│ ├── main.c
-│ ├── student.c
+│   ├── main.c
+│   ├── student.c
 │
 ├── include/
-│ ├── student.h
+│   ├── student.h
 │
 ├── data/
-│ └── students.txt
+│   └── students.txt
 │
 └── README.md
-
+```
 ---
 
 ## ▶️ Build Instructions
 
 From the project root directory:
+```
+gcc -Wall -Wextra -std=c11 src/main.c src/student.c -Iinclude -o app
+```
