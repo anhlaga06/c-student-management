@@ -1,0 +1,16 @@
+                              
+----------------------------------
+Add 1 student khi chua init data 
+Add 1 student khi da init data 
+Add 10 record            
+-------------------------
+Search ID tồn tại        
+Search ID không tồn tại                      
+--------------------------
+Delete ID tồn tại         
+Delete ID không tồn tại   
+Delete phần tử đầu        
+Delete phần tử cuối       
+Delete toàn bộ 
+Delete khi danh sách rỗng
+

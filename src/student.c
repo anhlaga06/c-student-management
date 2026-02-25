@@ -45,7 +45,7 @@ int addStudent(char *name, float gpa) {
     fptr = fopen(DATA_PATH, "ab+");
     CHECK(fptr);
     fwrite(&newStudent, sizeof(newStudent), 1, fptr);
-    fclose(fptr) == 0;
+    fclose(fptr);
     return newStudent.id;
 }
 
@@ -61,7 +61,7 @@ int displayStudent() {
     {
         printf("\n||%-10d||%-30s||%-10.02f||", student.id, student.name, student.gpa);
     }
-    fclose(fptr) == 0;
+    fclose(fptr);
     return 0;
 }
 

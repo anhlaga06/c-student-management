@@ -5,6 +5,16 @@
 #include "debug.h"
 #include <stdbool.h>
 
+#define SCANF(fmt, ...)        \
+    do {                       \
+        scanf(fmt, __VA_ARGS__); \
+        clearInputBuffer();    \
+    } while (0)
+
+void clearInputBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
 
 int main() {
     char feature[] = "\n===== STUDENT MANAGEMENT =====\
@@ -22,16 +32,17 @@ int main() {
     {
         printf("\nChoose: ");
         int option;
-        scanf("%d", &option);
+        SCANF("%d", &option);
         switch (option)
         {
             case 1: {
                 char name[50];
                 float gpa;
                 printf("\nEnter name: ");
-                scanf("%s", name);
+                fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = 0;
                 printf("\nEnter GPA: ");
-                scanf("%f", &gpa);
+                SCANF("%f", &gpa);
                 int id = addStudent(name, gpa);
                 printf("\nAdd record ID: %d Name: %s GPA: %.2f done!", id, name, gpa);
                 break;
@@ -43,7 +54,7 @@ int main() {
             case 3: {
                 printf("\nEnter ID: ");
                 int id;
-                scanf("%d", &id);
+                SCANF("%d", &id);
                 Student info;
                 if (searchRecord(id, &info) == 0) {
                     printf("\nID: %d Name: %s GPA: %.02f", info.id, info.name, info.gpa);
@@ -55,7 +66,7 @@ int main() {
             case 4: {
                 printf("\nEnter ID to delete: ");
                 int id;
-                scanf("%d", &id);
+                SCANF("%d", &id);
                 if (deleteRecord(id) == 0) {
                     printf("\nDelete record ID = %d done!", id);
                 } else {
