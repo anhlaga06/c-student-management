@@ -75,9 +75,11 @@ int searchRecord(int id, Student *info) {
     {
         if (student.id == id) {
             memcpy(info, &student, sizeof(student));
+            fclose(fptr);
             return 0;
         }
     }
+    fclose(fptr);
     return 1;
 }
 
